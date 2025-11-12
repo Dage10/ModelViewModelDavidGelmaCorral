@@ -1,12 +1,9 @@
 package model
 
 class QuoteProvider {
-    companion object {
-        fun random(): QuoteModel {
-            val position = (0..10).random()
-            return quotes[position]
-        }
 
+    companion object {
+        private var position = 0
         private val quotes = listOf(
             QuoteModel("It’s not a bug. It’s an undocumented feature!", "Anonymous"),
             QuoteModel("“Software Developer” – An organism that turns caffeine into software", "Anonymous"),
@@ -20,5 +17,13 @@ class QuoteProvider {
             QuoteModel("Software and cathedrals are much the same — first we build them, then we pray.", "Anonymous"),
             QuoteModel("¿A que esperas?, suscríbete.", "AristiDevs")
         )
+        fun next(): QuoteModel {
+            val quote = quotes[position]
+            position++
+            if(position >= quotes.size){
+                position = 0
+            }
+            return quote
+        }
     }
 }

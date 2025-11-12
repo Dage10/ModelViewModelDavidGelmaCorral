@@ -8,8 +8,8 @@ import model.QuoteProvider
 class QuoteViewModel : ViewModel() {
     val quoteModel = MutableLiveData<QuoteModel>()
 
-    fun randomQuote() {
-        val currentQuote = QuoteProvider.random()
+    fun nextQuote() {
+        val currentQuote = QuoteProvider.next()
         quoteModel.postValue(currentQuote)
     }
 }

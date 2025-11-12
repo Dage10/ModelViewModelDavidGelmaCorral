@@ -22,10 +22,10 @@ class MainActivity : AppCompatActivity() {
         })
 
         binding.viewContainer.setOnClickListener {
-            quoteViewModel.randomQuote()
+            quoteViewModel.nextQuote()
         }
 
-        quoteViewModel.randomQuote()
+        quoteViewModel.nextQuote()
 
     }
 }
